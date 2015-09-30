@@ -70,6 +70,11 @@ Then, in the `Build` section, add a build step, choose `Execute shell`. As it wi
 	python mysite/manage.py migrate
 	chmod +x build.sh
 	BUILD_ID=dontKillMe ./build.sh
+	
+Finally, set the post-build action to send an E-mail. In the project configure page, add a `post-build action` -- `Email notification`, input the recipients. Then in Manage Jenkins -> Configure System page, set the System Admin email address:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/general-config-address.png)
+And under the Email notification section, set the SMTP server:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/general-config-email.png)
 
 ##Build script
 In our project, we use a Django project as an example, as the `dev` build job and `release` build job have some differences, so we use different `build.sh`:
