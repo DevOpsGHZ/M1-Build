@@ -77,6 +77,11 @@ Finally, set the post-build action to send an E-mail. In the project configure p
 And under the Email notification section, set the SMTP server:
 ![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/general-config-email.png)
 
+###Multi branch
+To handle multiple jobs corresponding to multiple branches in a repository, we use a jenkins plugin [Multi-Branch Project Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Multi-Branch+Project+Plugin). For each branch, this plugin uses a shared configuration to create sub-projects.
+
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/multi-branch-plugin.png)
+
 ###Build script
 In our project, we use a Django project as an example, as the `dev` build job and `release` build job have some differences, so we use different `build.sh`:
 
