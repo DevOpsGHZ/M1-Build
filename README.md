@@ -8,7 +8,8 @@
  * Have multiple jobs corresponding to multiple branches in a repository 
  * Track and display a history of past builds (a simple list works) via http
 
-##Vagrant
+##Setting up
+###Vagrant
 Install [vagrant](https://www.vagrantup.com/downloads.html) and a virtual machine provider like [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 Initiate a virtual machine:
@@ -30,7 +31,7 @@ And install some basic stuffs:
 	sudo apt-get update
 	sudo apt-get install git make vim python-dev python-pip
 	sudo pip install virtualenv
-##Jenkins
+###Jenkins
 Install [Jenkins](https://jenkins-ci.org/) on the virtual machine we just created.
 		
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
@@ -76,7 +77,7 @@ Finally, set the post-build action to send an E-mail. In the project configure p
 And under the Email notification section, set the SMTP server:
 ![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/general-config-email.png)
 
-##Build script
+###Build script
 In our project, we use a Django project as an example, as the `dev` build job and `release` build job have some differences, so we use different `build.sh`:
 
 dev build.sh:
@@ -88,7 +89,7 @@ release build.sh:
 	sed -i '/DEBUG = True/c\DEBUG = False' mysite/mysite/settings.py
 	sed -i 's/.*ALLOWED_HOSTS.*/ALLOWED_HOSTS=["www.yourdomain.com"]/' mysite/mysite/settings.py
 	python mysite/manage.py runserver 0.0.0.0:8001 &
-##Git hooks
+###Git hooks
 In the git repository, create a file `post-commit` in `.git/hooks/`, add these two lines to it:
 
 	#!/bin/sh
@@ -113,4 +114,8 @@ We can see the detailed `console output` in the build pages:
 And the build history is here:
 ![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/build-history.png)
 
+And when the build failed, Jenkins will send an E-mail to the pre-defined address:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/fail.png)
 
+In the E-mail, it contains detailed console output:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/fail-email.png)
