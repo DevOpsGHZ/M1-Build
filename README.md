@@ -101,5 +101,16 @@ Then, run this command to make it executalbe:
 	chomd +x .git/hooks/post-commit
 
 ##Results
+After a `git commit`, it will send a notification to Jenkins:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/trigger-a-build.png)
+
+Then, Jenkins will start the build process if there are changes in the corrsponding branch:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/building.png)
+
+We can see the detailed `console output` in the build pages:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/console-output.png)
+
+And the build history is here:
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/build-history.png)
 
 
