@@ -69,11 +69,11 @@ In the git repository, create a file `post-commit` in `.git/hooks/`, add these t
 	#!/bin/sh
 	curl http://localhost:8080/git/notifyCommit?url=file:/path/to/repo
 	
-It means, when there is a commit, it will send a commit notification to `localhost:8080` that in `/path/to/repo` there is a new commit.
+It means, when there is a commit, it will send a commit notification to `localhost:8080` saying that in `/path/to/repo` (home/vagrant/Django.example in our case) there is a new commit.
 
 Then, run this command to make it executalbe:
 
-	chomd +x .git/hooks/post-commit
+	chmod +x .git/hooks/post-commit
 
 
 
@@ -118,9 +118,13 @@ release build.sh:
 ##Determine failure or success of a build job, and as a result trigger an email notification:
 
 In the project configure page, add a `post-build action` -- `Email notification`, input the recipients. Then in Manage Jenkins -> Configure System page, set the System Admin email address:
+
+![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/general-config.png)
+
 ![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/general-config-address.png)
 And under the Email notification section, set the SMTP server:
 ![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/general-config-email.png)
+By above configuration, jenkins will send out emails every time when a commit success for the first time or fail.
 
 
 ##Results
