@@ -147,3 +147,10 @@ And when the build failed, Jenkins will send an E-mail to the pre-defined addres
 
 In the E-mail, it contains detailed console output:
 ![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/fail-email.png)
+
+##Contributions
+Kelei Gong: build scripts, branch scripts, email notification
+
+Ying Huang: jenkins configuration, readme draft, git hook
+
+Shengpei Zhang: django project, result tracking
