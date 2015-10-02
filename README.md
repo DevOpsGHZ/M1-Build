@@ -79,7 +79,7 @@ Then, run this command to make it executalbe:
 
 ## Execute a build job via a shell script, which ensures a clean build each time:
 
-In the `Build` section, add a build step, choose `Execute shell`, then fill in the following shell commands. As it will set all the branches to execute those commands each time, which ensure a clean build: 
+In the `Build` section, add a build step, choose `Execute shell`, then fill in the following shell commands. As it will set all the branches to execute those commands each time a commit happen, which ensure a clean build: 
 
 
 	PATH=$WORKSPACE/env/bin:/usr/local/bin:$PATH
@@ -114,6 +114,8 @@ release build.sh:
 	sed -i 's/.*ALLOWED_HOSTS.*/ALLOWED_HOSTS=["www.yourdomain.com"]/' mysite/mysite/settings.py
 	python mysite/manage.py runserver 0.0.0.0:8001 &
 
+After running the common shell commands wrote in the last step,
+since we are using Multi-Branch Praject Plugin, it will run the different build.sh for each branch automatically. 
 
 ##Determine failure or success of a build job, and as a result trigger an email notification:
 
