@@ -149,8 +149,8 @@ In the E-mail, it contains detailed console output:
 ![image](https://raw.githubusercontent.com/DevOpsGHZ/M1-Build/master/screenshots/fail-email.png)
 
 ##Contributions
-Kelei Gong: build scripts, branch scripts, email notification
+Kelei Gong (kgong): build scripts, branch scripts, email notification
 
-Ying Huang: jenkins configuration, readme draft, git hook
+Ying Huang (yhuang34): jenkins configuration, readme draft, git hook
 
-Shengpei Zhang: django project, result tracking
+Shengpei Zhang (szhang29): django project, result tracking
